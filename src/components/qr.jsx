@@ -19,6 +19,17 @@ const QRCodeGenerator = () => {
     return(
         <div className='container'>
             <h1>QR Code Generator</h1>
+            
+            <div className='qr-container'>
+                <QRCode 
+                    id="qr-code-value" 
+                    value={qrCode} 
+                    size="250" 
+                    bgColor="rgb(0, 153, 255)"
+                    fgColor="white"
+                />
+            </div>
+
             <div className='input-container'>
                 <input 
                     onChange={(e) => handleOnChage(e)} 
@@ -29,9 +40,6 @@ const QRCodeGenerator = () => {
                 <button 
                     disabled={input && input.trim() !== '' ? false : true} 
                     onClick={handleGenerateQrCode}>Generate</button>
-            </div>
-            <div className='qr-container'>
-                <QRCode id="qr-code-value" value={qrCode} size="400" bgColor="#fff"/>
             </div>
         </div>
     );
